@@ -1,8 +1,8 @@
 mongo:
-  image: mongo:3.2
+  image: 'bitnami/mongodb'
+  restart: always
   volumes:
-  - "./db/mongo/:/data/db"
-  command: --nojournal
+   - "./db/mongo/:/bitnami/db"
 orion:
   image: fiware/orion
   links:
