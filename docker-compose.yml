@@ -1,12 +1,13 @@
-mongo:
-  image: 'bitnami/mongodb'
+mongodb:
+  image: 'mongo:2.6'
   restart: always
   volumes:
-   - "./db/mongo/:/bitnami/db"
+   - "./db/mongo/:/data/db"
 orion:
   image: fiware/orion
+  restart: always
   links:
-    - mongo
+    - mongodb
   ports:
     - "1026:1026"
-  command: -dbhost mongo -corsOrigin __ALL
+  command: -dbhost mongodb
