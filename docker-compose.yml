@@ -1,6 +1,9 @@
 mongodb:
-  image: 'mongo:2.6'
+  image: 'mongo:3.2'
   restart: always
+  command: --nojournal
+  ports:
+   - "27016:27017"
   volumes:
    - "./db/mongo/:/data/db"
 orion:
